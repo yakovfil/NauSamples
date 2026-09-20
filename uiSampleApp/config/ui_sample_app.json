@@ -12,7 +12,7 @@
       "mounts": [
         {
           "mountPoint": "/cocos",
-          "path": "${sampleProjectDir}/../../engine/core/modules/ui/src/shaders",
+          "path": "${sampleProjectDir}/Resources/ui/shaders",
           "readOnly": true
         },
 

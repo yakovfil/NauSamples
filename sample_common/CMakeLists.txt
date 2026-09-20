@@ -8,6 +8,10 @@ nau_collect_files(Sources
 
 add_library(${TargetName} STATIC ${Sources})
 
+if(NOT NauSDKLibraries)
+  target_compile_definitions(${TargetName} PUBLIC NAU_SAMPLES_ROOT="${NAU_SAMPLES_SOURCE_DIR}")
+endif()
+
 target_link_libraries(${TargetName} PUBLIC
     PlatformAppApi
     NauFramework

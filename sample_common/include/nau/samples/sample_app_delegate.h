@@ -15,7 +15,7 @@ namespace nau::sample
     public:
         /**
             @brief Initialize sample delegate
-            @param sampleName Sample project's directory name (where project's CMakeLists.txt are located: [engine_root]/samples/[sampleName])
+            @param sampleName Sample directory under the configured NauSamples root or installed SDK samples directory.
             @modulesList
         */
         SampleAppDelegate(eastl::string sampleName, eastl::string modulesList = getModulesList());

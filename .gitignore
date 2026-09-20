@@ -1,0 +1,16 @@
+/build/
+/bin/
+/output/
+.vs/
+.vscode/
+__pycache__/
+*.obj
+*.pch
+*.exe
+*.dll
+*.lib
+*.pdb
+*.nsbc
+*imgui.ini
+logs.*.log
+/sceneBase/{}/

@@ -1,7 +1,6 @@
 // Copyright 2024 N-GINN LLC. All rights reserved.
 // Use of this source code is governed by a BSD-3 Clause license that can be found in the LICENSE file.
 
-
 #include "nau/samples/sample_app_delegate.h"
 
 #include "nau/app/application_delegate.h"
@@ -15,6 +14,14 @@ namespace nau::sample
         std::filesystem::path findSampleDirPath(const eastl::string_view sampleName)
         {
             namespace fs = std::filesystem;
+#if defined(NAU_SAMPLES_ROOT)
+            const fs::path configuredPath = fs::path{NAU_SAMPLES_ROOT} / std::string(sampleName.data(), sampleName.size());
+            if (fs::exists(configuredPath / "CMakeLists.txt"))
+            {
+                return fs::canonical(configuredPath);
+            }
+            return {};
+#endif
             // lookup project's root directory: require presence all specific directories
             // Need to distinguish the project root directory from the cmake build directory (where some directories with the same name are also present)
             const fs::path projectRelativeDir = ::fmt::format("samples/{}", sampleName);

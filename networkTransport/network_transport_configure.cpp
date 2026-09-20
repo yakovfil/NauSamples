@@ -13,6 +13,9 @@ namespace nau
 
         const auto projectContentDir = EXPR_Block->fs::path
         {
+#if defined(NAU_SAMPLES_ROOT)
+            return fs::path{NAU_SAMPLES_ROOT} / "networkTransport/content";
+#endif
             const fs::path contentRelativePath{L"samples/networkTransport/content"};
             fs::path currentPath = fs::current_path();
 

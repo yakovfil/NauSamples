@@ -1,9 +1,4 @@
-if(NAU_RUNTIME_PROFILE STREQUAL "demo")
-  # Actual demo executable is integrated in task 4.1.
-  return()
-endif()
-
-if (NAU_CORE_SAMPLES)
+if (NAU_CORE_SAMPLES OR NAU_DEMO_SOURCE_DIR)
 
   if(NAU_RUNTIME_PROFILE STREQUAL "minimal")
     add_subdirectory(minimalApp)
@@ -22,7 +17,13 @@ if (NAU_CORE_SAMPLES)
   endforeach()
 
   # Copy samples to prebuild engine
-  install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
-    DESTINATION ${CMAKE_INSTALL_PREFIX}
+  install(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/"
+    DESTINATION samples
+    PATTERN ".git" EXCLUDE
+    PATTERN "build" EXCLUDE
+    PATTERN "bin" EXCLUDE
+    PATTERN "output" EXCLUDE
+    PATTERN "__pycache__" EXCLUDE
+    PATTERN "*imgui.ini" EXCLUDE
   )
 endif()

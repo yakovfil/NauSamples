@@ -26,11 +26,11 @@ if(NOT NauSDKLibraries)
 
   nau_add_default_shaders(${TargetName} content shaders
     INCLUDES
-    ${CMAKE_CURRENT_SOURCE_DIR}/../../engine/core/modules/render/include/nau/shaders
+    ${NAU_ENGINE_SOURCE_DIR}/engine/core/modules/render/include/nau/shaders
   )
   nau_add_default_shaders(${TargetName} resources shaders
     INCLUDES
-    ${CMAKE_CURRENT_SOURCE_DIR}/../../engine/core/modules/render/include/nau/shaders
+    ${NAU_ENGINE_SOURCE_DIR}/engine/core/modules/render/include/nau/shaders
   )
 endif()
 

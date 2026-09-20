@@ -35,7 +35,7 @@ nau_target_link_modules(${TargetName}
 )
 
 if(NauSDKLibraries)
-  target_link_directories(inputDemo PUBLIC ${NauSDKLibraries})
+  target_link_directories(${TargetName} PUBLIC ${NauSDKLibraries})
 endif()
 
 nau_add_compile_options(${TargetName})
